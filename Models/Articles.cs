@@ -4,6 +4,7 @@ namespace Gestion_de_restaurant.Models
 {
     public class Articles
     {
+
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Description { get; set; }
