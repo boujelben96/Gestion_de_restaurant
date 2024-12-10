@@ -33,6 +33,15 @@ namespace Gestion_de_restaurant.Controllers
                 return NotFound();
             return Ok(article);
         }
+        //get article by name
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetByName(string name)
+        {
+            Articles article = await articleRepository.GetArticleByName(name);
+            if (article == null)
+                return NotFound();
+            return Ok(article);
+        }
 
         [HttpPost("create")]
         public async Task<IActionResult> Create(Articles article)

@@ -7,6 +7,6 @@
         public decimal PrixTotal { get; set; }
         public int UtilisateurId { get; set; }
         public Utilisateur Utilisateur { get; set; }
-        public ICollection<ArticleCommande> ArticlesCommande { get; set; }
+        //public ICollection<ArticleCommande> ArticlesCommande { get; set; }
     }
 }

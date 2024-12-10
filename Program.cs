@@ -14,6 +14,9 @@ builder.Services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServ
 
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+//builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
+
+
 
 
 builder.Services.AddControllers();

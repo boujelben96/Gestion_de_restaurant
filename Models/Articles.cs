@@ -10,8 +10,9 @@ namespace Gestion_de_restaurant.Models
         public string Description { get; set; }
         public decimal Prix { get; set; }
         public string ImageUrl { get; set; }
-        public int CategorieId { get; set; }
+
         [ForeignKey("CategorieId")]
-        public Categories Categories { get; set; }
+        public int CategorieId { get; set; }
+        //public Categories Categories { get; set; }
     }
 }
