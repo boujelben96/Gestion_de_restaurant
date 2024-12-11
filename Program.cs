@@ -1,7 +1,8 @@
 using Gestion_de_restaurant.Data;
-using Gestion_de_restaurant.Models.Repository;
+//using Gestion_de_restaurant.Models.Repository;
+//using Gestion_de_restaurant.Models.Singleton;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TP7.Models.Repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,11 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 var cnx = builder.Configuration.GetConnectionString("connection");
 builder.Services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(cnx));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<RestaurantDbContext>();
 
-
-builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+//builder.Services.AddScoped<IArticleRepository,ArticleRepository>();
+//builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 //builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
+//builder.Services.AddSingleton<IMenu>(MenuOfTheDay.GetInstance());
 
 
 
@@ -35,6 +37,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
